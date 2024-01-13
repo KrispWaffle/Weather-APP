@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="ui.css">
         <title>How Cold/Warm</title>
         <link rel = "icon" href="https://cdn-icons-png.flaticon.com/128/1163/1163661.png" type="image/png">
      </head>
 
     <body>
-        <h1>Choose a City</h1>
-        <input type="text" placeholder="City Name" id="userInput">
-        <button id="searchbtn">Submit</button>
-  
-        <h2 id="message"></h2>
-        <script>
-            const apiKey = "cf67cef5a6f3d24d8be3fbbd4953cd18";
-            const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
-
-            async function checkWeather(city) {
-                const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-                var data = await response.json();
-                console.log(data);
-                document.querySelector("#message").innerHTML = "Temp: " + data.main.temp + "°F";
-            }
-
-            const searchbtn = document.getElementById("searchbtn");
-
-            searchbtn.addEventListener("click", (event) => {
-                event.preventDefault();
-                const cityC = checkWeather(userInput.value);
-            });
-        </script>
+        <div class="center-container">
+            <h1 class="center-text">Choose a City</h1>
+            <div class="input-container">
+                <input type="text" placeholder="City Name" id="userInput" class="center-block">
+                <button id="searchbtn" class="center-block">Submit</button>
+            </div>
+            <div class="temperature-container"> 
+                <h2 class="center-text">Temp:</h2>
+                <h2 id="message" class="center-text" ></h2>
+            </div>
+           
+        <script src="script.js"></script>
     </body>
+    
 </html>
+
